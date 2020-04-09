@@ -36,7 +36,7 @@ public class BatchAppTest {
     public void job01000Test() throws Exception {
         log.info("====== BEGIN ======   ");
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("param1", "value2")
+                .addString("param1", "value3")
                 .toJobParameters();
         Collection<String> jobNames = jobLocator.getJobNames();
         log.info("names:" + jobNames.toString());
