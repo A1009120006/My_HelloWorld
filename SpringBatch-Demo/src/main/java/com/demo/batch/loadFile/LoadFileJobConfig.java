@@ -17,16 +17,16 @@ public class LoadFileJobConfig {
      * 构建job并配置step
      * @return
      */
-//    @Bean
-//    public Job loadFileJob(@Autowired JobBuilderFactory jobBuilderFactory,
-//    		@Qualifier("loadFileStep") Step loadFileStep,
-//    		JobExecutionListener jobListener) {
-//    	String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
-//    	return jobBuilderFactory.get(funcName)
-//                .incrementer(new RunIdIncrementer())
-//                .listener(jobListener)
-//    			.start(loadFileStep)
-//    			.build();
-//    }
+    @Bean
+    public Job loadFileJob(@Autowired JobBuilderFactory jobBuilderFactory,
+    		@Qualifier("loadFileStep") Step loadFileStep,
+    		JobExecutionListener jobListener) {
+    	String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
+    	return jobBuilderFactory.get(funcName)
+                .incrementer(new RunIdIncrementer())
+                .listener(jobListener)
+    			.start(loadFileStep)
+    			.build();
+    }
     
 }

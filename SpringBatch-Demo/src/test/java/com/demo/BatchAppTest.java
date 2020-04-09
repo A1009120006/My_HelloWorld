@@ -30,20 +30,17 @@ public class BatchAppTest {
     private JobLauncher jobLauncher;
 
     @Autowired
-    Job partitionerJob;
-
-    @Autowired
     ListableJobLocator jobLocator;
 
     @Test
     public void job01000Test() throws Exception {
         log.info("====== BEGIN ======   ");
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("param1", "value1")
+                .addString("param1", "value2")
                 .toJobParameters();
         Collection<String> jobNames = jobLocator.getJobNames();
         log.info("names:" + jobNames.toString());
-        JobExecution run = jobLauncher.run(partitionerJob, jobParameters);
+        JobExecution run = jobLauncher.run(jobLocator.getJob("partitionJob"), jobParameters);
         BatchStatus status = run.getStatus();
         
         log.info("====== END  ======   " + status);
