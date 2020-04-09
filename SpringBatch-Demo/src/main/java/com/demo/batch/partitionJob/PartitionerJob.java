@@ -10,11 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Configuration
 @EnableBatchProcessing
-@Slf4j
 public class PartitionerJob {
 
 	@Autowired
