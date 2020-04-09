@@ -30,7 +30,7 @@ public class BatchAppTest {
     private JobLauncher jobLauncher;
 
     @Autowired
-    Job job04000;
+    Job partitionerJob;
 
     @Autowired
     ListableJobLocator jobLocator;
@@ -43,10 +43,10 @@ public class BatchAppTest {
                 .toJobParameters();
         Collection<String> jobNames = jobLocator.getJobNames();
         log.info("names:" + jobNames.toString());
-        JobExecution run = jobLauncher.run(jobLocator.getJob("partitionJob"), jobParameters);
+        JobExecution run = jobLauncher.run(partitionerJob, jobParameters);
         BatchStatus status = run.getStatus();
         
-        log.info("====== END  ======   ");
+        log.info("====== END  ======   " + status);
         log.info(run.toString());
     }
 }
