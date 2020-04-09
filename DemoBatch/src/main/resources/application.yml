@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: demoReadFile
+  banner:
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://114.67.79.46:3306/cips?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: topcbs
+    password: topcbs@123
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  batch:
+    initialize-schema: embedded #embedded、always #程序启动的时候初始化一个空数据结构
+    job:
+      enabled: true #默认启动后不自动执行job  false:关闭 Batch自动执行job的操作
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: null  #配置JdbcTypeForNull, oracle数据库必须配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #执行的sql打印出来 开发/测试
+mybatis:
+  mapperLocations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.huateng.icbs.entityty
+#  config-location: classpath:config/mybatis-config.xml
+server:
+  port: 8080
+
+repay:
+  orders:
+    chunkSize: 10
