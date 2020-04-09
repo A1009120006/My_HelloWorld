@@ -1,4 +1,4 @@
-package com.demo.batch.partitionJob;
+package com.demo.batch.partitionJob.service;
 
 
 import org.slf4j.Logger;

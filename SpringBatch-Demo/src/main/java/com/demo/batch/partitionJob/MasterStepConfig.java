@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
+import com.demo.batch.partitionJob.service.RangePartitioner;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
@@ -36,7 +38,7 @@ public class MasterStepConfig {
 
 			@Override
 			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				log.info("dummyTask");
+				log.info("invoke dummyTask");
 				return null;
 			}
 		};

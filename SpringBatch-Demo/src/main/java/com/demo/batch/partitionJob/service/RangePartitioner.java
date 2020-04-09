@@ -1,4 +1,4 @@
-package com.demo.batch.partitionJob;
+package com.demo.batch.partitionJob.service;
 
 import java.util.HashMap;
 import java.util.Map;
